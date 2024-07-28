@@ -1,3 +1,30 @@
+Create React App
+Configure Tailwind CSS
+Setup react-router-dom
+    * npm install -D react-router-dom
+Create Components
+* Body
+* Login
+* Browse
+* Header
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
