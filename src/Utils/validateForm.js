@@ -20,7 +20,7 @@ export const validateForm = (email, password, setPassword) => {
       "Password must be at least 8 characters long, contain an uppercase letter, a lowercase letter, a digit, and a special character.";
   }
 
-  if (setPassword !== password) {
+  if (setPassword && setPassword !== password) {
     errors.setPassword = "Password and Confirm Password do not match.";
   }
 
