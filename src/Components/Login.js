@@ -11,16 +11,20 @@ const Login = () => {
     email: '',
     password: '',
     setPassword: ''
-  })
+  });
+
   const toggleSignInSignUp = (e) => {
     e.preventDefault();
     setSignUp(!signUp);
     setErrors({
-        email: '',
-        password: '',
-        setPassword: ''
-      })
+      email: '',
+      password: '',
+      setPassword: ''
+    });
+    emailRef.current.value = '';
+    passwordRef.current.value ='';
   };
+
   const handleSignUp = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
@@ -28,13 +32,22 @@ const Login = () => {
     const setPassword = setPasswordRef.current.value;
     const validateSignUpErrors = validateForm(email, password, setPassword);
     setErrors(validateSignUpErrors);
-    if (errors.length == 0) {
-        console.log('Form submitted completely');
+    if (Object.keys(validateSignUpErrors).length === 0) {
+      console.log('Form submitted successfully');
     }
   };
+
   const handleSignIn = (e) => {
     e.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    const validateSignInErrors = validateForm(email, password);
+    setErrors(validateSignInErrors);
+    if (Object.keys(validateSignInErrors).length === 0) {
+      console.log('Form submitted successfully');
+    }
   };
+
   return (
     <>
       <Header />
@@ -51,34 +64,35 @@ const Login = () => {
         <input
           type="text"
           placeholder="Email or mobile number"
-          ref = {emailRef}
+          ref={emailRef}
           className="p-3 my-3 w-full bg-gray-800"
         />
         {errors.email && <p className="text-red-600">{errors.email}</p>}
         <input
           type="password"
-          ref ={passwordRef}
+          ref={passwordRef}
           placeholder="Password"
           className="p-3 my-3 w-full bg-gray-800"
         />
         {errors.password && <p className="text-red-600">{errors.password}</p>}
         {signUp && (
-          <input
+          <><input
             type="password"
-            ref ={setPasswordRef}
+            ref={setPasswordRef}
             placeholder="Confirm Password"
             className="p-3 my-3 w-full bg-gray-800"
           />
+          {errors.setPassword && <p className="text-red-600">{errors.setPassword}</p>}</>
         )}
-        {errors.setPassword && <p className="text-red-600">{errors.setPassword}</p>}
+       
         <button className="p-3 my-5 bg-red-600 w-full rounded-md" onClick={signUp ? handleSignUp : handleSignIn}>
           {signUp ? "Sign Up" : "Sign In"}
         </button>
 
-        <p className="pt-4" >
+        <p className="pt-4">
           {signUp
-            ? <>Already have an account? <a href='' onClick={toggleSignInSignUp}> Sign In</a></>
-            : <>New to Netflix? <a href='' onClick={toggleSignInSignUp}> Sign Up now</a></>}
+            ? <>Already have an account? <a href="" onClick={toggleSignInSignUp}> Sign In</a></>
+            : <>New to Netflix? <a href="" onClick={toggleSignInSignUp}> Sign Up now</a></>}
         </p>
       </form>
     </>
