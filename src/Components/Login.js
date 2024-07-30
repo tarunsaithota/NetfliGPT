@@ -3,10 +3,8 @@ import Header from "./Header";
 import { validateForm } from "../Utils/validateForm";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "firebase/auth";
 import { auth } from "../Utils/firebase";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate();
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const setPasswordRef = useRef(null);
@@ -42,7 +40,6 @@ const Login = () => {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate('/browse');
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -64,7 +61,6 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
-          navigate('/browse');
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -132,17 +128,15 @@ const Login = () => {
         <p className="pt-4">
           {signUp ? (
             <>
-              Already have an account?{" "}
+              Already have an account?.. 
               <a href="" onClick={toggleSignInSignUp}>
-                {" "}
                 Sign In
               </a>
             </>
           ) : (
             <>
-              New to Netflix?{" "}
+              New to Netflix?..
               <a href="" onClick={toggleSignInSignUp}>
-                {" "}
                 Sign Up now
               </a>
             </>

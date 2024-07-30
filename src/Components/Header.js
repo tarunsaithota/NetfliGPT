@@ -1,36 +1,53 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { signOut } from "firebase/auth";
-import { auth } from "../Utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { auth } from '../Utils/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUser, removeUser } from '../Utils/userSlice';
+import { LOGO, USER_LOGO } from "../Utils/Constants";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector((store)=> store.user);
+  const userDetails = useSelector((store)=> store.user);
   const handleSignOut = (e) => {
     e.preventDefault();
-    signOut(auth).then(() => {
-      navigate('/');
-    }).catch((error) => {
+    signOut(auth).then(() => {}).catch((error) => {
       navigate('/errorPage')
     });
   }
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const {uid, email, displayName} = user;
+        dispatch(addUser({uid: uid, email: email, displayName: displayName}));
+        navigate('/browse');
+      } else {
+        dispatch(removeUser());
+        navigate('/');
+      }
+    });
+  }, []);
   return (
-      <><div className="absolute px-5 py-2 bg-gradient-to-b from-black w-full z-50 flex justify-between">
+      <>
+      <div className="absolute px-5 py-2 bg-gradient-to-b from-black w-full z-50 flex justify-between">
         <img className="w-44"
-          src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+          src={LOGO}
           alt="logo"
         />
-      {user && (<div className="flex p-4">
-        <img className="w-10 h-10 "
-         src='https://occ-0-1480-1479.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABeuqjuQsRgqEDlibtJTI5BMf8IxhLlLOeIT6xI4TL57mqv7XHja43gx02S8pZVe8JNGRQXjnrUk1VcsTXqi83tFKPI6OR3k.png?r=bd7' alt="user-logo"/>
-        <div className='pl-4 text-white'>
-          <p>Welcome {user.email.split('@')[0]}</p>
-          <button className=" font-bold" onClick={handleSignOut}> (Sign out)</button>
+      {userDetails && (
+        <div className="flex p-4">
+          <img className="w-10 h-10 "
+          src={USER_LOGO} alt="user-logo"/>
+          <div className='pl-4 text-white'>
+            <p>Welcome {userDetails.email.split('@')[0]}</p>
+            <button className=" font-bold" onClick={handleSignOut}> (Sign out)</button>
+          </div>
         </div>
-        
-      </div>)}
-    </div>
+      )}
+      </div>
     </>
   );
 };
