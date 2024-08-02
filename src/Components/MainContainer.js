@@ -1,17 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import VideoBackground from './VideoBackground'
 import VideoTitle from './VideoTitle'
 
 const MainContainer = () => {
-    const movies = useSelector((store)=>store.movies?.nowPlayingMovies);
+  const[mute, setMute] = useState(true);
+  const handleSound = (e) => {
+    e.preventDefault();
+    setMute(!mute);
+  }
+    const movies = useSelector((store)=>store.movies?.upComingMovies);
     if (!movies) return;
     const mainMovie = movies[0];
     const {original_title, overview, id} = mainMovie;
   return (
     <div>
-        <VideoTitle title={original_title} overview={overview} />
-        <VideoBackground movieId ={id} />
+        <VideoTitle title={original_title} overview={overview} mute={mute} handleSound= {handleSound} />
+        <VideoBackground movieId ={id} mute={mute} />
     </div>
   )
 }
