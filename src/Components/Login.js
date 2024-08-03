@@ -54,13 +54,11 @@ const Login = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     const validateSignInErrors = validateForm(email, password);
-    console.log(email, password, validateSignInErrors);
     setErrors(validateSignInErrors);
     if (Object.values(validateSignInErrors).every((error) => error === "")) {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -80,7 +78,7 @@ const Login = () => {
           className="w-full h-full object-cover"
         />
       </div>
-      <form className="w-4/12 absolute p-12 bg-black my-40 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-85">
+      <form className=" w-10/12 md:w-4/12 absolute p-12 bg-black my-40 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-85">
         <h1 className="font-bold text-3xl py-4">
           {signUp ? "Sign Up" : "Sign In"}
         </h1>

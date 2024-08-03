@@ -40,21 +40,21 @@ const Header = ({showGPTSearch}) => {
   }
   return (
       <>
-      <div className="absolute px-5 py-2 bg-gradient-to-b from-black w-full z-50 flex justify-between">
-        <img className="w-44"
+      <div className="absolute px-5 py-2 bg-gradient-to-b from-black w-full z-50 flex flex-col md:flex-row justify-between">
+        <img className="w-44 mx-auto md:mx-0"
           src={LOGO}
           alt="logo"
         />
       {userDetails && (
-        <div className="flex p-4">
-          {showGPTSearch && <select className="px-2 m-1.5 bg-gray-700 text-white rounded-lg" onChange={handleLangChange}>
+        <div className="flex p-2 md:p-4 justify-end">
+          {showGPTSearch && <select className=" md:px-2 m-1 md:m-1.5 bg-gray-700 text-white rounded-lg" onChange={handleLangChange}>
             {SUPPORTED_LANGUAGES.map((lang) => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
           </select>}
-          <button className=" text-white bg-red-700 rounded-lg m-2 px-2" onClick={handleGPTSearchButton}>{showGPTSearch ? 'Home' : 'GPT Search'}</button>
-          <img className="w-10 h-10 " src={USER_LOGO} alt="user-logo"/>
+          <button className=" text-white bg-red-700 rounded-lg md:px-2 m-1 px-1 md:m-1.5" onClick={handleGPTSearchButton}>{showGPTSearch ? 'Home' : 'GPT Search'}</button>
+          <img className="hidden md:inline-block w-8 h-8 my-2" src={USER_LOGO} alt="user-logo"/>
           <div className='pl-4 text-white'>
             <p>Welcome {userDetails.email.split('@')[0]}</p>
-            <button className=" font-bold" onClick={handleSignOut}> (Sign out)</button>
+            <button className="font-bold text-sm" onClick={handleSignOut}> (Sign out)</button>
           </div>
         </div>
       )}
