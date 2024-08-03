@@ -4,7 +4,7 @@ export const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjOTgwN2YyMmEzOTc4MTdlYjkzYzMzZjc4OTI2NjlmMSIsIm5iZiI6MTcyMjM1ODEyNS4xNTEyODMsInN1YiI6IjY2YTkxNmUyYWZjNDU4MjFiNWViYzdkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BY0qrM7soo78qvCkJHel6I3an6AzdFhGciu39Jjmsbk'
+      Authorization: 'Bearer'+process.env.REACT_APP_OPTIONS_KEY
     }
   };
 
@@ -17,4 +17,4 @@ export const SUPPORTED_LANGUAGES = [
   {identifier: "spanish", name: 'Spanish'}
 ]
 
-export const OPENAI_API_KEY = 'test-secret-key';
+export const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY

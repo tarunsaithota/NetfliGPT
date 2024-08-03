@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "netflix-gpt-d4a69"
-  }
+    "default": "moviedb-85306",
+    "gpt": "moviedb-85306"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
