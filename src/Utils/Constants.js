@@ -17,4 +17,4 @@ export const SUPPORTED_LANGUAGES = [
   {identifier: "spanish", name: 'Spanish'}
 ]
 
-export const OPENAI_API_KEY = 'sk-E0_ODcmB3WY8UmQbP9RDnYkFb5TxeXCMPpYJ_twXqqT3BlbkFJq3cdXKXIX9C1hHU7E1rdtlGkxfBD1js3obsUV8lGYA';
+export const OPENAI_API_KEY = 'test-secret-key';
