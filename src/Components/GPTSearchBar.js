@@ -10,7 +10,6 @@ const GPTSearchBar = () => {
     const langKey = useSelector((store)=> store.config.lang);
     const inputRef = useRef(null);
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-    console.log(GEMINI_API_KEY, genAI);
     const handleSearchButton = async(e) => {
         e.preventDefault();
         const gptQuery = "Act as a movie recommendation system and suggest some movies for the query" + inputRef.current.value + ". only give me names of five movies, comma seperatedlike the example result given ahead. Example result : Gadar, sholay, Don, Bahubali, Pushpa"
@@ -23,7 +22,7 @@ const GPTSearchBar = () => {
         dispatch(addGPTMovieList({showMovies : movieData, showMovieNames: gptMovies}));
     }
     const fetchMovie = async(movieName) => {
-        const result = await fetch('https://api.themoviedb.org/3/search/movie?query=' + movieName + '&include_adult=false&language=en-US&page=1', options);
+        const result = await fetch('https://api.themoviedb.org/3/search/movie?query='+movieName+'&include_adult=false&language=en-US&page=1', options);
         const moviesResult = await result.json();
         return moviesResult.results;
     }

@@ -20,7 +20,7 @@ const usePopularMovies = () => {
   };
   useEffect(() => {
     !watchPopularMovies && popularMovies();
-  }, []);
+  }, [watchPopularMovies]);
 };
 
 export default usePopularMovies;
