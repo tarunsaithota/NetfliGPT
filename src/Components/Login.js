@@ -134,7 +134,7 @@ const Login = () => {
             </>
           ) : (
             <>
-              New to Netflix?..
+              New user?..
               <a href="" onClick={toggleSignInSignUp}>
                 Sign Up now
               </a>

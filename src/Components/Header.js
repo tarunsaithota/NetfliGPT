@@ -5,10 +5,9 @@ import { auth } from '../Utils/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser, removeUser } from '../Utils/userSlice';
-import { LOGO, SUPPORTED_LANGUAGES, USER_LOGO } from "../Utils/Constants";
+import { SUPPORTED_LANGUAGES } from "../Utils/Constants";
 import { toggleGPTSearch } from "../Utils/GPTSlice";
 import { changelanguage } from "../Utils/configSlice";
-import Netflix_Logo_PMS from "../Utils/Netflix_Logo_PMS.png";
 import User_Logo from "../Utils/USER_LOGO.png";
 
 const Header = ({showGPTSearch}) => {
@@ -43,10 +42,7 @@ const Header = ({showGPTSearch}) => {
   return (
       <>
       <div className="absolute px-5 py-2 bg-gradient-to-b from-black w-full z-50 flex flex-col md:flex-row justify-between">
-        <img className="w-44 mx-auto md:mx-0"
-          src={Netflix_Logo_PMS}
-          alt="logo"
-        />
+        <h1 className="text-4xl font-extrabold text-red-800 pt-2">MOVIES GPT</h1>
       {userDetails && (
         <div className="flex p-2 md:p-4 justify-end">
           {showGPTSearch && <select className=" md:px-2 m-1 md:m-1.5 bg-gray-700 text-white rounded-lg" onChange={handleLangChange}>

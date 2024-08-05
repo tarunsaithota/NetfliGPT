@@ -1,7 +1,7 @@
 {
   "projects": {
-    "default": "moviedb-85306",
-    "gpt": "moviedb-85306"
+    "default": "netflix-gpt-d4a69",
+    "gpt": "netflix-gpt-d4a69"
   },
   "targets": {},
   "etags": {},
