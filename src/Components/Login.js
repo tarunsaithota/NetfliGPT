@@ -3,6 +3,7 @@ import Header from "./Header";
 import { validateForm } from "../Utils/validateForm";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "firebase/auth";
 import { auth } from "../Utils/firebase";
+import BG_IMAGE from "../Utils/BG_IMAGE.jpg";
 
 const Login = () => {
   const emailRef = useRef(null);
@@ -73,7 +74,7 @@ const Login = () => {
       <Header />
       <div className="absolute w-full h-full">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/21a8ba09-4a61-44f8-8e2e-70e949c00c6f/e86a75da-ce78-4129-9e7d-c056f1c3363b/US-en-20240722-POP_SIGNUP_TWO_WEEKS-perspective_WEB_e46f05a7-c909-4aaf-9e3c-c832bbca606c_large.jpg"
+          src={BG_IMAGE}
           alt=""
           className="w-full h-full object-cover"
         />
