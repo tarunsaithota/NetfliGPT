@@ -41,6 +41,7 @@ const Login = () => {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
+          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -60,6 +61,7 @@ const Login = () => {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
+          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -128,16 +130,16 @@ const Login = () => {
           {signUp ? (
             <>
               Already have an account?.. 
-              <a href="" onClick={toggleSignInSignUp}>
+              <button onClick={toggleSignInSignUp}>
                 Sign In
-              </a>
+              </button>
             </>
           ) : (
             <>
               New user?..
-              <a href="" onClick={toggleSignInSignUp}>
+              <button onClick={toggleSignInSignUp}>
                 Sign Up now
-              </a>
+              </button>
             </>
           )}
         </p>
