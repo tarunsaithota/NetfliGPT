@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { options } from "../Utils/Constants";
 import { useDispatch, useSelector } from "react-redux";
-import { addTrailer } from "../Utils/moviesSlice";
+import { addTrailer, clearTrailer } from "../Utils/moviesSlice";
 
 const useMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
@@ -18,11 +18,13 @@ const useMovieTrailer = (movieId) => {
       (result) => result.type === "Trailer"
     );
     const trailer = filterVideos.length ? filterVideos[0] : response.results[0];
+    console.log(trailer, trailerVideo);
     dispatch(addTrailer(trailer));
   };
   useEffect(() => {
-    !trailerVideo && getMovieVideos();
-  }, [trailerVideo]);
+    dispatch(clearTrailer());
+    getMovieVideos();
+  }, []);
 };
 
 export default useMovieTrailer;

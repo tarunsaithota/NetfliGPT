@@ -20,7 +20,7 @@ const useUpComingMovies = () => {
   };
   useEffect(() => {
     !watchUpComingMovies && upComingMovies();
-  }, [watchUpComingMovies]);
+  }, []);
 };
 
 export default useUpComingMovies;

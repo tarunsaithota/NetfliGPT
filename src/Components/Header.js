@@ -31,7 +31,7 @@ const Header = ({showGPTSearch}) => {
         navigate('/');
       }
     });
-  }, [navigate]);
+  }, []);
   const handleGPTSearchButton = () => {
     dispatch(toggleGPTSearch());
   }
