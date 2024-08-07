@@ -3,7 +3,7 @@ import Header from "./Header";
 import { validateForm } from "../Utils/validateForm";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "firebase/auth";
 import { auth } from "../Utils/firebase";
-import BG_IMAGE from "../Utils/BG_IMAGE.jpg";
+import BG_IMG from "../Utils/BG_IMG.jpg";
 
 const Login = () => {
   const emailRef = useRef(null);
@@ -41,7 +41,6 @@ const Login = () => {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -61,7 +60,6 @@ const Login = () => {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -76,7 +74,7 @@ const Login = () => {
       <Header />
       <div className="absolute w-full h-full">
         <img
-          src={BG_IMAGE}
+          src={BG_IMG}
           alt=""
           className="w-full h-full object-cover"
         />

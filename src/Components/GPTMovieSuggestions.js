@@ -4,10 +4,7 @@ import { useSelector } from 'react-redux';
 
 const GPTMovieSuggestions = () => {
     const {showMovieNames, showMovies} = useSelector(store=> store.GPT);
-    console.log(showMovies);
-
     if(!showMovieNames) return null;
-    
     return (
     <>
       <div className='bg-gray-900 m-4'>

@@ -42,7 +42,7 @@ const Header = ({showGPTSearch}) => {
   return (
       <>
       <div className="absolute px-5 py-2 bg-gradient-to-b from-black w-full z-50 flex flex-col md:flex-row justify-between">
-        <h1 className="text-4xl font-extrabold text-red-800 pt-2 mx-auto md:mx-0">MOVIES GPT</h1>
+        <h1 className="text-4xl font-extrabold text-white pt-2 mx-auto md:mx-0">MOVIES GPT</h1>
       {userDetails && (
         <div className="flex p-2 md:p-4 justify-end">
           {showGPTSearch && <select className=" md:px-2 m-1 md:m-1.5 bg-gray-700 text-white rounded-lg" onChange={handleLangChange}>
