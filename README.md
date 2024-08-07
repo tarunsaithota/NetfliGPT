@@ -5,26 +5,29 @@ MoviesGPT is an online movie lookup app designed to display movies categorized a
 Technologies Used
 MoviesGPT is developed using React JS and incorporates the following technologies:
 
-JSON Server
-Local Storage
-React Router
-Tailwind CSS
-Redux Store
-Firebase
-Features
+* JSON Server
+* Local Storage
+* React Router
+* Tailwind CSS
+* Redux Store
+* Firebase
+* Features
+
 MoviesGPT utilizes several React JS features, including:
 
-Props
-useState
-useEffect
-Custom Hooks
-Project Structure
+* Props
+* useState
+* useEffect
+* Custom Hooks
+* Project Structure
+
 The project is organized into the following folders:
 
-components - Individual components used across various pages
-hooks - Custom hooks
-utils - Various constant files, along with the Redux store and slices
-You can explore the app here.
+* components - Individual components used across various pages
+* hooks - Custom hooks
+* utils - Various constant files, along with the Redux store and slices
+
+You can explore the app here:https://moviesgpt-651ca.firebaseapp.com/
 
 
 
