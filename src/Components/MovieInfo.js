@@ -46,7 +46,7 @@ const MovieInfo = () => {
               <p className='font-semibold md:font-bold'>Duration: ⏲️ {movieInfo?.runtime}min</p>
               <p className='pt-1 md:pt-3 font-semibold md:font-bold'>Genere: 🎬 {movieInfo?.genres.map(genre => genre.name).join(', ')}</p>
               <p className='pt-1 md:pt-3 font-semibold md:font-bold'>Release Date: 🗓️ {movieInfo?.release_date}</p>
-              <p className='pt-1 md:pt-3 font-semibold md:font-bold'>Votes: {movieInfo?.vote_average*10}% </p>
+              <p className='pt-1 md:pt-3 font-semibold md:font-bold'>Votes: {Math.round(movieInfo?.vote_average*10)}% </p>
               <p className='pt-1 md:pt-6 font-semibold md:font-bold'>Overview:</p>
               <p className='pt-1 md:pt-6 pb-4 md:pb-10'>{movieInfo?.overview}</p>
               <button className='border border-blue-950 bg-blue-950  w-32 md:w-36 h-10 text-white rounded-lg' onClick={handlePlayButton}>▶️ Play Trailer</button>
