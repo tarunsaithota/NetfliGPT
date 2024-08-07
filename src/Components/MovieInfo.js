@@ -10,6 +10,7 @@ const MovieInfo = () => {
     const navigate = useNavigate();
     const movieInfo = useSelector((store) => store.movies.movieInfo);
     const videoFocus = useRef(null);
+    const topOfDetails = useRef(null);
     const handleBacktoHome = ()=> {
       navigate('/');
     }
@@ -23,8 +24,12 @@ const MovieInfo = () => {
           videoFocus.current.focus();
       }, 0);
     }
+    const handleScrollToTop = () => {
+      topOfDetails.current.scrollIntoView({ behavior: "smooth" });
+      topOfDetails.current.focus();
+    };
   return (
-    <div className=''>
+    <div ref={topOfDetails} tabIndex="-1">
       <div className="absolute pl-[80%] pt-4 md:pl-[90%]">
         <button className="text-sm md:text-2xl font-bold" onClick={handleBacktoHome}>⬅️Back</button>
       </div>
@@ -54,6 +59,9 @@ const MovieInfo = () => {
           <VideoBackground movieId={id} />
         </div>
       )}
+      <div className="hidden md:inline-block fixed bottom-4 right-4">
+        <button className="border border-blue-950 bg-white w-10 h-10 text-white rounded-full" onClick={handleScrollToTop}>⬆️</button>
+      </div>
     </div>
   );
 }
