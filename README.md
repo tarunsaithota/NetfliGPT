@@ -1,22 +1,70 @@
+MoviesGPT
+
+MoviesGPT is an online movie lookup app designed to display movies categorized as Upcoming, Now Playing, and more, with trailers playing on the main page. The app features an integrated AI search button powered by GPT, allowing users to search for movies with multiple inputs such as different genres and desired languages. It retrieves comprehensive details about the searched movie.
+
+Technologies Used
+MoviesGPT is developed using React JS and incorporates the following technologies:
+
+JSON Server
+Local Storage
+React Router
+Tailwind CSS
+Redux Store
+Firebase
+Features
+MoviesGPT utilizes several React JS features, including:
+
+Props
+useState
+useEffect
+Custom Hooks
+Project Structure
+The project is organized into the following folders:
+
+components - Individual components used across various pages
+hooks - Custom hooks
+utils - Various constant files, along with the Redux store and slices
+You can explore the app here.
+
+
+
+
+
+
+
+
+
 Create React App
-Configure Tailwind CSS
-Setup react-router-dom
-    * npm install -D react-router-dom
-Create Components
-* Body
-* Login
-* Browse
-* Header
-
-
-
-
-
-
-
-
-
-
+Configured TailwindCSS
+Header
+Routing of App
+useRef Hook
+Firebase Setup
+Deploying our app to production
+Regiter TMDB API & create an app & get access token
+Get Data from TMDB now playing movies list API
+Custom Hook for Now Playing Movies
+Create movieSlice
+Update Store with movies Data
+Planning for MainContauiner & secondary container
+Fetch Data for Trailer Video
+Update Store with Trailer Video Data
+Embedded the Yotube video and make it autoplay and mute
+Tailwind Classes to make Main Container look awesome
+Build Secondary Component
+Build Movie List
+build Movie Card
+TMDB Image CDN URL
+Made the Browsre page amazing with Tailwind CSS
+usePopularMovies Custom hook
+GPT Search Page
+GPT Search Bar
+Multi-language Feature
+fetched gptMoviesSuggestions from TMDB
+created gptSlice added data
+Resused Movie List component to make movie suggestion container
+Memoization
+Made our Site Responsive
 
 
 
