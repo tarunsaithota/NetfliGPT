@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "movies-651ca-4f9de",
     "public": "build",
     "ignore": [
       "firebase.json",

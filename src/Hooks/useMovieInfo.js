@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { options } from "../Utils/Constants";
 import { useDispatch, useSelector } from "react-redux";
-import { addMovieInfo } from "../Utils/moviesSlice";
+import { addMovieInfo, removeMovieInfo } from "../Utils/moviesSlice";
 
 const useMovieInfo = (movieId) => {
   const dispatch = useDispatch();
@@ -18,7 +18,8 @@ const useMovieInfo = (movieId) => {
     dispatch(addMovieInfo(response));
   };
   useEffect(() => {
-    !movieInfo && getMovieVideos();
+    dispatch(removeMovieInfo());
+    getMovieVideos();
   }, []);
 };
 
