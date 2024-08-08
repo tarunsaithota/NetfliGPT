@@ -31,24 +31,24 @@ const MovieInfo = () => {
   return (
     <div ref={topOfDetails} tabIndex="-1">
       <div className="absolute pl-[80%] pt-4 md:pl-[90%]">
-        <button className="text-sm md:text-2xl font-bold" onClick={handleBacktoHome}>⬅️Back</button>
+        <button className="text-sm md:text-2xl font-bold" onClick={handleBacktoHome}>⬅️ Back</button>
       </div>
       <div className="w-full p-2 py-8">
         <div className="">
-          <h1 className="text-lg md:text-4xl font-bold py-2 md:py-5 pl-8">
+          <h1 className="text-lg md:text-4xl font-semibold py-2 md:py-5 pl-8 text-blue-950 shadow-lg">
             {movieInfo?.title}🍿
           </h1>
           <div className='px-8 pt-2 md:pt-6 md:flex md:w-full'>
-            <div className='w-28 md:w-[20%]'>
+            <div className='w-28 md:w-[20%] mr-8 shadow-lg mb-4 md:mb-0'>
               <img src={POSTER_CDN+movieInfo?.poster_path } alt='Movie Card' className='w-full h-full object-cover'/>
             </div>
-            <div className='md:pl-16 pt-2 text-blue-950 md:w-[60%]'>
-              <p className='font-semibold md:font-bold'>Duration: ⏲️ {movieInfo?.runtime}min</p>
-              <p className='pt-1 md:pt-3 font-semibold md:font-bold'>Genere: 🎬 {movieInfo?.genres.map(genre => genre.name).join(', ')}</p>
-              <p className='pt-1 md:pt-3 font-semibold md:font-bold'>Release Date: 🗓️ {movieInfo?.release_date}</p>
-              <p className='pt-1 md:pt-3 font-semibold md:font-bold'>Votes: {Math.round(movieInfo?.vote_average*10)}% </p>
-              <p className='pt-1 md:pt-6 font-semibold md:font-bold'>Overview:</p>
-              <p className='pt-1 md:pt-6 pb-4 md:pb-10'>{movieInfo?.overview}</p>
+            <div className='md:px-8 pt-3 text-blue-950 md:w-[70%] md:ml-8 md:shadow-inner'>
+              <p className='font-semibold md:font-bold shadow-sm text-ls md:text-xl'>Duration: <span className='font-semibold md:text-lg'>⏲️ {movieInfo?.runtime} min</span></p>
+              <p className='pt-1 md:pt-3 font-semibold md:font-bold shadow-sm text-ls md:text-xl'>Genere: <span className='font-semibold md:text-lg'>🎬 {movieInfo?.genres.map(genre => genre.name).join(', ')}</span></p>
+              <p className='pt-1 md:pt-3 font-semibold md:font-bold shadow-sm text-ls md:text-xl'>Release Date:<span className='font-semibold md:text-lg'> 🗓️ {movieInfo?.release_date}</span></p>
+              <p className='pt-1 md:pt-3 font-semibold md:font-bold shadow-sm text-ls md:text-xl'>Votes: <span className='font-semibold md:text-lg'>{Math.round(movieInfo?.vote_average*10)}%</span> </p>
+              <p className='pt-1 md:pt-6 font-semibold md:font-bold shadow-sm text-ls md:text-xl'>Overview:</p>
+              <p className='pt-2 md:pt-6 pb-4 md:pb-10 shadow-xs'>{movieInfo?.overview}</p>
               <button className='border border-blue-950 bg-blue-950  w-32 md:w-36 h-10 text-white rounded-lg' onClick={handlePlayButton}>▶️ Play Trailer</button>
             </div>
           </div>
