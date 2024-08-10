@@ -16,7 +16,7 @@ const Header = ({showGPTSearch}) => {
   return (
       <>
       <div className="absolute md:px-5 py-2 bg-gradient-to-b from-black w-full z-50 flex justify-between">
-        <h1 className="text-2xl md:text-4xl font-extrabold text-white pl-4 md:pl-0 pt-1 md:pt-3 md:mx-0">MOVIES GPT</h1>
+        <h1 className="text-2xl md:text-4xl font-extrabold text-white pl-4 md:pl-0 pt-1 md:pt-3 md:mx-0">CineSearch AI</h1>
         <div className="flex p-2 md:p-4 justify-center md:justify-end">
           {showGPTSearch && <select className=" md:px-2 m-1 md:m-1.5 bg-gray-700 text-white rounded-lg text-xs md:text-lg" onChange={handleLangChange}>
             {SUPPORTED_LANGUAGES.map((lang) => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}

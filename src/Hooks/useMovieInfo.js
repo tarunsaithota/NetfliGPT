@@ -14,7 +14,6 @@ const useMovieInfo = (movieId) => {
       options
     );
     const response = await data.json();
-    console.log(response);
     dispatch(addMovieInfo(response));
   };
   useEffect(() => {
