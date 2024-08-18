@@ -4,6 +4,7 @@ import VideoBackground from './VideoBackground';
 import useMovieInfo from '../Hooks/useMovieInfo';
 import { useSelector } from 'react-redux';
 import { POSTER_CDN } from '../Utils/Constants';
+import StarRating from './StarRating';
 
 const MovieInfo = () => {
     const { id } = useParams();
@@ -51,39 +52,39 @@ const MovieInfo = () => {
             <p className="text-lg md:text-4xl font-extrabold md:py-5  md:text-blue-950">
               {movieInfo?.title}🍿
             </p>
-            <p className="font-semibold md:font-bold shadow-sm text-ls md:text-xl ">
-              Duration:{" "}
-              <span className="font-semibold md:text-lg">
+            <p className="font-bold shadow-sm text-ls md:text-xl">
+              Duration:
+              <span className="md:font-semibold md:text-lg text-gray-700">
                 ⏲️ {movieInfo?.runtime} min
               </span>
             </p>
-            <p className="pt-1 md:pt-3 font-semibold md:font-bold shadow-sm text-ls md:text-xl ">
-              Genere:{" "}
-              <span className="font-semibold md:text-lg">
+            <p className="pt-1 md:pt-3 font-bold shadow-sm text-ls md:text-xl ">
+              Genere:
+              <span className="font-semibold md:text-lg text-gray-700">
                 🎬 {movieInfo?.genres.map((genre) => genre.name).join(", ")}
               </span>
             </p>
-            <p className="pt-1 md:pt-3 font-semibold md:font-bold shadow-sm text-ls md:text-xl ">
+            <p className="pt-1 md:pt-3 font-bold shadow-sm text-ls md:text-xl ">
               Release Date:
-              <span className="font-semibold md:text-lg">
-                {" "}
+              <span className="font-semibold md:text-lg text-gray-700">   
                 🗓️ {movieInfo?.release_date}
               </span>
             </p>
-            <p className="pt-1 md:pt-3 font-semibold md:font-bold shadow-sm text-ls md:text-xl ">
-              Votes:{" "}
-              <span className="font-semibold md:text-lg">
+            <p className="pt-1 md:pt-3 font-bold shadow-sm text-ls md:text-xl flex">
+              Votes:
+              <span className="font-semibold md:text-lg text-gray-700 px-2 pt-0.5">
                 {Math.round(movieInfo?.vote_average * 10)}%
-              </span>{" "}
+              </span>
+              <StarRating />  
             </p>
-            <p className="pt-1 md:pt-6 font-semibold md:font-bold shadow-sm text-ls md:text-xl ">
+            <p className="pt-1 md:pt-6 font-bold shadow-sm text-ls md:text-xl ">
               Overview:
             </p>
-            <p className="pt-2 md:pt-6 pb-4 md:pb-10 shadow-xs font-semibold">
+            <p className="pt-2 md:pt-6 pb-4 md:pb-10 shadow-xs font-semibold text-gray-700">
               {movieInfo?.overview}
             </p>
             <button
-              className=" bg-blue-950 hover:bg-blue-800 w-32 md:w-36 h-10 text-white rounded-lg"
+              className=" bg-blue-950 hover:bg-gray-800 w-32 md:w-36 h-10 text-white rounded-lg"
               onClick={handlePlayButton}
             >
               ▶️ Play Trailer
